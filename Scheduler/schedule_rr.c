@@ -34,12 +34,12 @@ void schedule(){
     stack = next;
   }
   while (stack->task->burst > 0) {
-      if (stack->task->burst > quantum) {
-          run(stack->task, quantum);
-      } else {
-          run(stack->task, stack->task->burst);
-      }
-      stack->task->burst -= quantum;
+    if (stack->task->burst > quantum) {
+        run(stack->task, quantum);
+    } else {
+        run(stack->task, stack->task->burst);
+    }
+    stack->task->burst -= quantum;
   }
   free(stack);
 }

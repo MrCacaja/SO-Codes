@@ -22,7 +22,7 @@ void insert(struct node **head, Task *newTask) {
 
 void push(struct node **head, Task *newTask) {
   struct node *newNode = malloc(sizeof(struct node));
-
+  newNode->next = NULL;
   newNode->task = newTask;
   if (*head == 0) {
     *head = newNode;
